@@ -21,16 +21,16 @@ strr = strr.lower()
 dict = {}
 matr = []
 matr1 = []
-a = 'àáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿ!.,?-:;"()0123456789'
+a = 'àáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿ!.,?-:;"()012345'
 
 b = Foo(a)
 strr= ''
-for i in range(len(str2)):
-    if a.find(str2[i])!= -1 and strr.find(str2[i])==-1:
-        strr += str(Foo(str2[i]))
-for i in range(len(a)):
-    if strr.find(a[i])== -1:
-        strr += str(Foo(a[i]))
+for i in str2:
+    if a.find(i)!= -1 and strr.find(i)==-1:
+        strr += str(Foo(i))
+for i in a:
+    if strr.find(i)== -1:
+        strr += str(Foo(i))
         
 #strr = str(b)
 #print(strr)
@@ -38,7 +38,6 @@ a = strr
 b = a
 kol_vo = (math.sqrt(len(b)))
 def prov(kol_vo, l):
-
     if kol_vo % 1> 0 :
       for i in range(int(kol_vo), -1, -1):
          if l % i == 0:
@@ -54,16 +53,16 @@ ii=0
 jj=0
 matr = []
 kol = len(strr)
-for i in range (kol):
+for i in strr:
   if ii> kol_vo:
       matr.append(matr1)
       matr1 = []
       ii = 0
       jj+=1
-  if a.find(strr[i])!=-1:
-      matr1.append(str(strr[i]))
-      dict[str(strr[i])] = ii * 10 + jj
-      a = a.replace(strr[i],'')
+  if a.find(i)!=-1:
+      matr1.append(str(i))
+      dict[str(i)] = ii * 10 + jj
+      a = a.replace(i,'')
       ii+=1
 kol = len(a)
 ii = 0

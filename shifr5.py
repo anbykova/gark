@@ -1,20 +1,11 @@
 from __future__ import print_function
 
 import math
-#file = open('text1.txt', 'r')
 
-# Прочитаем набор байтиков из файла на диске
-#data = file.read()
 file = open('code.txt', 'r')
 str2 = file.read()
 str2 = str2.lower()
 #str2 = 'winter, земляника, земляника.'
-
-# Запишем байты обратно на диск
-#file1.write(data)
-
-#file1.close()  # Необязательно, но хороший стиль
-
 
 class Foo(object):
     def __init__(self, name):
@@ -30,21 +21,20 @@ matr1 = []
 a = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя!.,?-:;"()012345'
 b = Foo(a)
 strr= ''
-for i in range(len(str2)):
-    if a.find(str2[i])!= -1 and strr.find(str2[i])==-1:
-        strr += str(Foo(str2[i]))
-for i in range(len(a)):
-    if strr.find(a[i])== -1:
-        strr += str(Foo(a[i]))       
+for i in (str2):
+    if a.find(i)!= -1 and strr.find(i)==-1:
+        strr += str(Foo(i))
+for i in a:
+    if strr.find(i)== -1:
+        strr += str(Foo(i))       
 #strr = str(b)
 a = strr
 b = a
 kol_vo = (math.sqrt(len(b)))
 
 def prov(kol_vo, l):
-    
-    if kol_vo % 1> 0 :s
-      for i in range(int(kol_vo), -1, -1):
+    if kol_vo % 1> 0 :
+       for i in range(int(kol_vo), -1, -1):
          if l % i == 0:
             kol_vo = i - 1
             return kol_vo
@@ -56,22 +46,21 @@ if kol_vo == 0: kol_vo = prov(math.sqrt(len(b)), len(b)+1)
 ii = 0
 jj=0
 matr = []
-kol = len(strr)
-for i in range (kol):
-  if ii> kol_vo :
+for i in strr:
+  if ii > kol_vo :
       matr.append(matr1)
       matr1 = []
       ii = 0
       jj+=1
-  if a.find(strr[i])!=-1:
-      matr1.append(strr[i])
-      dict[strr[i]] = ii * 10 + jj
-      a = a.replace(strr[i],'')
+  if a.find(i)!=-1:
+      matr1.append(i)
+      dict[i] = ii * 10 + jj
+      a = a.replace(i,'')
       ii+=1
 kol = len(a)
 ii = 0
 for i in range (kol):
-  if ii> kol_vo :
+  if ii > kol_vo :
       matr.append(matr1)
       matr1 = []
       ii = 0
@@ -104,8 +93,8 @@ while i <len(STROKA):
     
 newstr = ''
 itog = ''
-for i in range(len(STROKA)):
-    zn = dict[STROKA[i]]
+for i in (STROKA):
+    zn = dict[i]
     zn1 = str(zn/10)
     zn2 = str(zn%10)
     itog =itog + str(zn1) + str(zn2)
