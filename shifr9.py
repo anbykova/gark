@@ -39,48 +39,134 @@ for i in range (kol):
   ii+=1
 
 matr.append(matr1)
-file1 = open('message.txt', 'r')
-print(matr)
-STROKA = file1.read()
-STROKA = STROKA.lower()
-STROKA = STROKA.replace('j','i')
-i = 0
-num = 0
+def kod():
+    file1 = open('message.txt', 'r')
+    for i in range(5):
+        for j in range(5):
+            print(matr[i][j], end = '')
+        print()
 
-while i <len(STROKA):
-  if b.find(STROKA[i])== -1:
-    STROKA = STROKA.replace(STROKA[i],'')
-  else:
-      i+=1
 
-i = 0
-newstr = ''
-while i <len(STROKA):
-  zn1 = STROKA[i]
-  zn2 = STROKA[i+1]
-  zn11 = zn1 / 10
-  zn12 = zn1 % 10
-  zn21 = zn2 / 10
-  zn22 = zn2 % 10
-  if zn11 == zn21:
-      if zn12 == 4: zn12 = -1
-      if zn22 == 4: zn22 = -1
-      newstr += matr[zn11][zn12 + 1]
-      newstr += matr[zn21][zn22 + 1]
-  elif zn12 == zn22:
-      if zn11 == 4: zn11 = -1
-      if zn21 == 4: zn21 = -1
-      newstr += matr[zn11+1][zn12]
-      newstr += matr[zn21+1][zn22]
-  else:
-      newstr += matr[zn11][zn22]
-      newstr += matr[zn21][zn12]
-  i+=2
+    STROKA = file1.read()
+    print(STROKA)
+    STROKA = STROKA.lower()
+    STROKA = STROKA.replace('j','i')
+    i = 0
+    num = 0
 
-    
-file2 = open('itog.txt', 'w')
-file2.write(newstr)
-file2.close()
-    
-      
+    while i <len(STROKA):
+       if b.find(STROKA[i])== -1:
+            STROKA = STROKA.replace(STROKA[i],'')
+       else:
+            i+=1
+
+    i = 0
+    newstr = ''
+    print(STROKA)
+    while i < len(STROKA):
+        zn1 = int(dict[STROKA[i]])
+        zn2 = 0
+        if i+1 < len(STROKA):
+            zn2 = int(dict[STROKA[i+1]])
+        zn12 = int(zn1 / 10)
+        zn11 = zn1 % 10
+        zn22 = int(zn2 / 10)
+        zn21 = zn2 % 10
+        if zn11 == zn21 and zn12 == zn22:
+            if STROKA[i+1] == 'x':
+                zn2  = int(dict['y'])
+                zn22 = int(zn2 / 10)
+                zn21 = zn2 % 10
+            if STROKA[i+1] != 'x':
+                zn2  = int(dict['x'])
+                zn22 = int(zn2 / 10)
+                zn21 = zn2 % 10
+            i-=1
+        if zn11 == zn21:
+          if zn12 == 4: zn12 = -1
+          if zn22 == 4: zn22 = -1
+          newstr += matr[zn11][zn12 + 1]
+          newstr += matr[zn21][zn22 + 1]
+        elif zn12 == zn22:
+          if zn11 == 4: zn11 = -1
+          if zn21 == 4: zn21 = -1
+          newstr += matr[zn11+1][zn12]
+          newstr += matr[zn21+1][zn22]
+        else:
+          newstr += matr[zn11][zn22]
+          newstr += matr[zn21][zn12]
+        i+=2
+
+
+    file2 = open('itog.txt', 'w')
+    file2.write(newstr)
+    print(newstr)
+    file2.close()
+
+
   
+def dekod():
+    file1 = open('itog.txt', 'r')
+    for i in range(5):
+        for j in range(5):
+            print(matr[i][j], end = '')
+        print()
+
+
+    STROKA = file1.read()
+    print(STROKA)
+    STROKA = STROKA.lower()
+    STROKA = STROKA.replace('j','i')
+    i = 0
+    num = 0
+
+    while i <len(STROKA):
+       if b.find(STROKA[i])== -1:
+            STROKA = STROKA.replace(STROKA[i],'')
+       else:
+            i+=1
+
+    i = 0
+    newstr = ''
+    while i <len(STROKA):
+        zn1 = int(dict[STROKA[i]])
+        zn2 = int(dict[STROKA[i+1]])
+        zn12 = int(zn1 / 10)
+        zn11 = zn1 % 10
+        zn22 = int(zn2 / 10)
+        zn21 = zn2 % 10
+
+        if zn11 == zn21:
+          if zn12 == 4: zn12 = -1
+          if zn22 == 4: zn22 = -1
+          newstr += matr[zn11][zn12 - 1]
+          newstr += matr[zn21][zn22 - 1]
+        elif zn12 == zn22:
+          if zn11 == 4: zn11 = -1
+          if zn21 == 4: zn21 = -1
+          newstr += matr[zn11-1][zn12]
+          newstr += matr[zn21-1][zn22]
+        else:
+          newstr += matr[zn11][zn22]
+          newstr += matr[zn21][zn12]
+        i+=2
+    i = 1
+    itog = newstr[0]
+    print(newstr)
+    while i < len(newstr) -1:
+        itog += newstr[i]
+        i+=1
+    itog += newstr[-1]
+    newstr = itog
+
+
+    file2 = open('message.txt', 'w')
+    file2.write(newstr)
+    print(newstr)
+    file2.close()
+if int(input("0-kod, 1 - dekod")) == 0:
+    print('kod')
+    kod()
+else:
+    print('dekod')
+    dekod()
