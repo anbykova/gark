@@ -1,0 +1,12 @@
+file = open('mtext.txt','r')
+data = file.read()
+str = 'абвгдеёжзиклмнопрстуфхцчшщъыьэюя'
+dict = {}
+for line in data:
+	for i in line:
+		if str.find(i)>-1:
+			if i in dict:
+				dict[i] += 1
+			else:
+				dict[i] = 0
+print(dict)
