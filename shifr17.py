@@ -4,6 +4,9 @@ a = str1.split()
 a = [int(x) for x in a]
 matr = []
 kol = 0
+check = False
+null = 0
+ed = 1
 while a != []:
 	matr1 = a[:9]
 	matr.append(matr1)
@@ -41,6 +44,7 @@ for i in range(kol):
             break
 if not(check):
     print('Нулевой элемент не найден')
+    print('Единичный элемент не найден')
 else: 
     check = False
     for i in range(kol):
@@ -56,6 +60,7 @@ else:
                 break
     if not(check):
         print('Единичный элемент не найден')
+if 1>0:
     check = False
     for i in range(kol):
         for j in range(kol):
@@ -97,15 +102,15 @@ else:
         if s != 1:
             print('Найдены обр эл-ты для всех')
         else:
-       	    print('Единчиный эл-т не найден! обратные эл-ты искать не можем')
+       	    print('не для всех элементов найдены обратные')
     else:
-   	 print('нулевого эл-та нет! проверять некторые  условия не можем.')
+   	 print('единичного нет,обратные элементы не найдены ')
             
 check = False
 for i in range(kol):
     for j in range(kol):
         for k in range(kol):
-            if add(add(matr[j],matr[i]),matr[k]) != add(matr[i],add(matr[j],matr[k])):
+            if add(add(matr[i],matr[j]),matr[k]) != add(matr[i],add(matr[j],matr[k])):
                 check = True
                 break
 if check:
@@ -127,7 +132,7 @@ check = False
 for i in range(kol):
     for j in range(kol):
         for k in range(kol):
-            if mul(mul(matr[j],matr[i]),matr[k]) != mul(matr[i],mul(matr[j],matr[k])):
+            if mul(mul(matr[i],matr[j]),matr[k]) != mul(matr[i],mul(matr[j],matr[k])):
                 check = True
                 break
 if check:
